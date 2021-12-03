@@ -1,0 +1,10 @@
+public class FixedDepositAccount extends BankAccount{
+    private float interest = 3;
+    private int duration = 6;
+
+    public void deposit(float dep) {
+        System.out.println("NOP");
+    }
+    public void withdraw(float wd) {
+        System.out.println("NOP");
+}
