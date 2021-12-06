@@ -1,10 +1,58 @@
-public class FixedDepositAccount extends BankAccount{
-    private float interest = 3;
-    private int duration = 6;
+package bank;
 
+public class FixedDepositAccount extends BankAccount{
+    private float interest = 3.0f;
+    private int durationMonths = 6;
+    private boolean hasInterestChanged = false;
+    private boolean hasDurationChanged = false;
+
+    public FixedDepositAccount(String name){
+        super(name);
+    }
+    @Override
     public void deposit(float dep) {
         System.out.println("NOP");
     }
+    @Override
     public void withdraw(float wd) {
         System.out.println("NOP");
+    }
+    @Override
+    public void setBalance(float balance) {
+        System.out.println("NOP");
+    }
+
+    public void setInterest(float i) {
+        if (this.hasInterestChanged) {
+            throw new IllegalArgumentException();
+            return;
+        }
+        this.interest = i;
+        this.hasInterestChanged = true;
+
+    }
+
+    public void setDurationMonths(int dur) {
+        if (this.hasDurationChanged) {
+            throw new IllegalArgumentException();
+            return;
+        }
+        this.durationMonths = dur;
+        this.hasDurationChanged = true;
+    }
+    public FixedDepositAccount(String name, Float balance) {
+        super(name, balance);
+    }
+
+    public FixedDepositAccount(String name, Float balance, Float interest) {
+        super(name, balance);
+        this.int = interest;
+    }
+
+    public FixedDepositAccount(String name, Float balance, Float interest, Integer duration) {
+        super(name, balance);
+        this.int = interest;
+        this.durationMonths = duraiton;
+
+    }
 }
